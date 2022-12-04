@@ -12,7 +12,7 @@ import {
   Typography
 } from '@mui/material';
 
-import {useForm} from "react-hook-form";
+import {useForm, Controller} from "react-hook-form";
 import * as yup from 'yup';
 import {yupResolver} from "@hookform/resolvers/yup";
 // components
@@ -33,8 +33,11 @@ export default function PostPage() {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm({
-    resolver: yupResolver(schema)
+  const { register, handleSubmit, reset, formState: { errors }, control } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      languageType: 0,
+    }
   });
 
   const auth = useSelector(state => state.auth)
@@ -116,16 +119,29 @@ export default function PostPage() {
           </FormControl>
           <FormControl sx={{mb: 2, minWidth: 120 }} size="small" fullWidth>
             <FormLabel id="demo-row-radio-buttons-group-label">Ngôn ngữ</FormLabel>
-            <RadioGroup
-                row
-                defaultValue={0}
-                aria-labelledby="demo-row-radio-buttons-group-label"
+            <Controller
+                rules={{ required: true }}
+                control={control}
                 name="languageType"
-                {...register("languageType")}
-            >
-              <FormControlLabel value={0} control={<Radio size="small"/>} label="Tiếng Việt" />
-              <FormControlLabel value={1} control={<Radio size="small"/>} label="Tiếng Anh" />
-            </RadioGroup>
+                render={({ field }) => {
+                  console.log(field)
+                  return (
+                      <RadioGroup {...field} row>
+                        <FormControlLabel
+                            value={0}
+                            control={<Radio />}
+                            label="Tiếng Việt"
+                        />
+                        <FormControlLabel
+                            value={1}
+                            control={<Radio />}
+                            label="Tiếng Anh"
+                        />
+                      </RadioGroup>
+                  );
+                }}
+            />
+
           </FormControl>
           <FormControl fullWidth>
             <TextField

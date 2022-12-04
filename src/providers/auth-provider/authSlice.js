@@ -10,7 +10,7 @@ const initialState = {
 
 export const login = createAsyncThunk(
     "auth/login",
-    async (user, thunkAPI) => {
+    async (user) => {
         const response = await authService.login(user)
         const data = response.result
         localStorage.setItem("userInfo", JSON.stringify(data))

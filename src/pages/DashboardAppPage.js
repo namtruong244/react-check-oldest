@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
 import {useEffect, useState} from 'react';
 // @mui
 import {
@@ -8,31 +7,21 @@ import {
   Table,
   Stack,
   Paper,
-  Avatar,
-  Button,
-  Popover,
-  Checkbox,
   TableRow,
-  MenuItem,
   TableBody,
   TableCell,
   Container,
   Typography,
-  IconButton,
   TableContainer,
-  TablePagination, Box, CircularProgress, Link,
+  TablePagination, CircularProgress, Link,
 } from '@mui/material';
 // components
 import {useSelector} from "react-redux";
-import {makeStyles} from '@mui/styles'
 import {useNavigate} from "react-router-dom";
-import Label from '../components/label';
-import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
 // sections
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
-import USERLIST from '../_mock/user';
 import {contentService} from "../services/contentService";
 
 
@@ -169,7 +158,7 @@ export default function DashboardAppPage() {
                       :
                       <TableBody>
                         {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                          const { id, userId, userName, fullName, email, content, title, classType } = row;
+                          const { id, userName, content, title, classType } = row;
 
                           return (
                               <TableRow hover key={id} tabIndex={-1}>

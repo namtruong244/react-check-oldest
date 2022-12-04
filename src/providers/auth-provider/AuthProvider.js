@@ -3,6 +3,7 @@ import {useEffect} from "react";
 // eslint-disable-next-line import/named
 import {addUserInfo} from "./authSlice";
 
+// eslint-disable-next-line react/prop-types
 export function AuthProvider({ children }) {
     const dispatch = useDispatch()
 

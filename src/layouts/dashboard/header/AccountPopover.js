@@ -24,12 +24,12 @@ export default function AccountPopover() {
   const auth = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
-  let user = {
+  let currentUser = {
     fullname: "Khách",
     email: ""
   }
   if (auth.isLogin) {
-    user = auth.user
+    currentUser = auth.user
   }
 
   const handleOpen = (event) => {
@@ -87,10 +87,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user.fullname}
+            {currentUser.fullname}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user.email}
+            {currentUser.email}
           </Typography>
         </Box>
 
