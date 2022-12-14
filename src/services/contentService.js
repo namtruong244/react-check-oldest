@@ -6,6 +6,10 @@ export const contentService = {
         return axiosClient.get(`api/content`, {headers: {Authorization: `Bearer ${token}`}})
     },
 
+    async getStatisticInfo(token) {
+        return axiosClient.get(`api/statistic`, {headers: {Authorization: `Bearer ${token}`}})
+    },
+
     async createContent(data, token) {
         const header = {
             Authorization: `Bearer ${token}`

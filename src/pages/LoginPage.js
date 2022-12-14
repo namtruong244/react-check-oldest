@@ -7,7 +7,6 @@ import {useSelector} from "react-redux";
 import {useLocation, useNavigate} from "react-router-dom";
 import useResponsive from '../hooks/useResponsive';
 // components
-import Logo from '../components/logo';
 import Iconify from '../components/iconify';
 // sections
 import { LoginForm } from '../sections/auth/login';
@@ -22,7 +21,7 @@ const StyledRoot = styled('div')(({ theme }) => ({
 
 const StyledSection = styled('div')(({ theme }) => ({
   width: '100%',
-  maxWidth: 480,
+  maxWidth: 700,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -63,20 +62,20 @@ export default function LoginPage() {
       </Helmet>
 
       <StyledRoot>
-        <Logo
-          sx={{
-            position: 'fixed',
-            top: { xs: 16, sm: 24, md: 40 },
-            left: { xs: 16, sm: 24, md: 40 },
-          }}
-        />
+        {/*<Logo*/}
+        {/*  sx={{*/}
+        {/*    position: 'fixed',*/}
+        {/*    top: { xs: 16, sm: 24, md: 40 },*/}
+        {/*    left: { xs: 16, sm: 24, md: 40 },*/}
+        {/*  }}*/}
+        {/*/>*/}
 
         {mdUp && (
           <StyledSection>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Xin chào
-            </Typography>
-            <img src="/assets/illustrations/illustration_login.png" alt="login" />
+            {/*<Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>*/}
+            {/*  Xin chào*/}
+            {/*</Typography>*/}
+            <img src="/assets/illustrations/illustration_login_1.jpg" alt="login" height={'100%'} />
           </StyledSection>
         )}
 

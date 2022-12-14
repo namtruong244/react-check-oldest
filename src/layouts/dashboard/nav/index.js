@@ -6,7 +6,6 @@ import { styled, alpha } from '@mui/material/styles';
 import { Box, Link, Drawer, Typography, Avatar } from '@mui/material';
 // mock
 import {useSelector} from "react-redux";
-import account from '../../../_mock/account';
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
 // components
@@ -70,7 +69,7 @@ export default function Nav({ openNav, onCloseNav }) {
       <Box sx={{ mb: 5, mx: 2.5 }}>
         <Link underline="none">
           <StyledAccount>
-            <Avatar src={account.photoURL} alt="photoURL" />
+            <Avatar src={`/assets/images/avatars/avatar_${currentUser.avatarType}.jpg`} alt="photoURL" />
 
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
@@ -87,7 +86,9 @@ export default function Nav({ openNav, onCloseNav }) {
 
       <NavSection data={navConfig} />
 
-      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{position: 'absolute', bottom: 0}}>
+        <img src={`/assets/images/background_nav.png`} alt={""}/>
+      </Box>
     </Scrollbar>
   );
 

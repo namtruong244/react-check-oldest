@@ -30,6 +30,10 @@ export function fData(number) {
   return result(format, '.0');
 }
 
+export function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
 function result(format, key = '.00') {
   const isInteger = format.includes(key);
 

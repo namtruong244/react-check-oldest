@@ -42,7 +42,7 @@ export default function Page404() {
           />
 
           <Button to="/" size="large" variant="contained" component={RouterLink}>
-            Về trang chủ
+            Về danh sách bài viết
           </Button>
         </StyledContent>
       </Container>

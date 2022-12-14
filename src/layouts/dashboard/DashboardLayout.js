@@ -28,6 +28,10 @@ const Main = styled('div')(({ theme }) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
   },
+  backgroundImage: `url("/assets/images/background_1.jpg")`,
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  backgroundSize: 'cover'
 }));
 
 // ----------------------------------------------------------------------

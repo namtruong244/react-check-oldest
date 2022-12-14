@@ -4,7 +4,6 @@ import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton, Popover } from '@mui/material';
 // mocks_
 import {useDispatch, useSelector} from "react-redux";
-import account from '../../../_mock/account';
 // eslint-disable-next-line import/named
 import {logout} from "../../../providers/auth-provider/authSlice";
 
@@ -63,7 +62,7 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <Avatar src={account.photoURL} alt="photoURL" />
+        <Avatar src={`/assets/images/avatars/avatar_${currentUser.avatarType}.jpg`} alt="photoURL" />
       </IconButton>
 
       <Popover

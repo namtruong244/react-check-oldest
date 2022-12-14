@@ -124,7 +124,6 @@ export default function PostPage() {
                 control={control}
                 name="languageType"
                 render={({ field }) => {
-                  console.log(field)
                   return (
                       <RadioGroup {...field} row>
                         <FormControlLabel

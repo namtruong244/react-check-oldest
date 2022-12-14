@@ -21,8 +21,16 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
     "auth/logout",
-    async () => {
+    () => {
         localStorage.removeItem("userInfo")
+    }
+)
+
+export const saveAvatar = createAsyncThunk(
+    "auth/saveAvatar",
+    async (user) => {
+        localStorage.setItem("userInfo", JSON.stringify(user))
+        return user
     }
 )
 
@@ -54,6 +62,9 @@ export const authSlice = createSlice({
         },
         [logout.fulfilled]: (state) => {
             state.isLogin = false
+        },
+        [saveAvatar.fulfilled]: (state, action) => {
+            state.user = action.payload
         }
     },
 })

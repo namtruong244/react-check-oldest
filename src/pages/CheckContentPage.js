@@ -62,7 +62,7 @@ export default function CheckContentPage() {
             setIsSpeechRecognizer(false)
         }
     };
-    console.log(status)
+
     const audioProps = {
         audioType: "audio/wav",
         // audioOptions: {sampleRate: 30000}, // 设置输出音频采样率
@@ -163,8 +163,8 @@ export default function CheckContentPage() {
                             </Typography>
                             <Typography variant="body2">
                                 <strong>Nội dung: </strong>
-                                {status === 'recording' || status === 'pause' ?
-                                    "Nội dung không được hiển thị khi đang thu âm"
+                                {status === 'recording' || status === 'pause' || isSpeechRecognizer || dataRecognizer !== "" ?
+                                    "Nội dung đã bị ẩn"
                                     :
                                     <Link
                                     component="button"
